@@ -25,6 +25,7 @@ class CreateStudentProfile extends Migration
             $table->string('student_address');
             $table->string('student_nation');
             $table->string('student_phone');
+            $table->string('student_img');
 
             // Parent Table
             $table->string('parent_name');

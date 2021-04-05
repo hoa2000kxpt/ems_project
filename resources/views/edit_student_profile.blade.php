@@ -25,15 +25,20 @@
                     <div class="card-body">
                         <h3>Thông tin học sinh</h3>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="student_img">Ảnh giao diện</label>
+                        <input type="file" class="form-control-file" name="student_img" id="student_img">
+                    </div>                        
 
                     <div class="form-group">
                         <label for="student_fullname">Họ và tên</label>
-                        <input type="text" class="form-control" name="student_fullname" id="student_fullname" placeholder="Hãy điền họ và tên học sinh"/>
+                        <input type="text" class="form-control" name="student_fullname" id="student_fullname" placeholder="Hãy điền họ và tên học sinh" value="{{ $student->fullname }}"/>
                     </div>
 
                     <div class="form-group">
                         <label for="student_id">Thẻ học sinh</label>
-                        <input type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền thẻ học sinh"/>
+                        <input type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền thẻ học sinh" value="{{ $student->student_id }}"/>
                     </div>
 
                     <div class="form-group">
@@ -43,12 +48,12 @@
 
                     <div class="form-group">
                         <label for="student_grade">Khối</label>
-                        <input type="text" class="form-control" name="student_grade" id="student_grade" placeholder="Hãy điền khối của học sinh"/>
+                        <input type="text" class="form-control" name="student_grade" id="student_grade" placeholder="Hãy điền khối của học sinh" value="{{ $student->grade}}"/>
                     </div>
 
                     <div class="form-group">
                         <label for="student_class">Lớp</label>
-                        <input type="text" class="form-control" name="student_class" id="student_class" placeholder="Hãy điền lớp của học sinh"/>
+                        <input type="text" class="form-control" name="student_class" id="student_class" placeholder="Hãy điền lớp của học sinh" value="{{ $student->class}}"/>
                     </div>
 
                     <div class="form-group">
@@ -110,26 +115,27 @@
 
                     <div class="form-group">
                         <label for="parent_job">Nghề nghiệp</label>
-                        <input type="text" class="form-control" name="parent_job" id="parent_job" placeholder="Hãy điền khối của học sinh"/>
+                        <input type="text" class="form-control" name="parent_job" id="parent_job" placeholder="Hãy điền khối của phụ huynh"/>
                     </div>
 
                     <div class="form-group">
                         <label for="parent_nation">Dân tộc</label>
-                        <input type="text" class="form-control" name="parent_nation" id="parent_nation" placeholder="Hãy điền dân tộc của học sinh"/>
+                        <input type="text" class="form-control" name="parent_nation" id="parent_nation" placeholder="Hãy điền dân tộc của phụ huynh"/>
                     </div>
 
                     <div class="form-group">
                         <label for="parent_phone">Số điện thoại</label>
-                        <input type="text" class="form-control" name="parent_phone" id="parent_phone" placeholder="Hãy điền số điện thoại của học sinh"/>
+                        <input type="text" class="form-control" name="parent_phone" id="parent_phone" placeholder="Hãy điền số điện thoại của phụ huynh"/>
                     </div>   
 
                     <div class="form-group">
                         <label for="parent_email">Email</label>
-                        <input type="text" class="form-control" name="parent_email" id="parent_email" placeholder="Hãy điền số điện thoại của học sinh"/>
+                        <input type="text" class="form-control" name="parent_email" id="parent_email" placeholder="Hãy điền số điện thoại của phụ huynh"/>
                     </div>  
                 </form>
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
+            <a href="{{ url('/student_profile/'.$student->id)}}" class="btn btn-warning">Quay về</a>
             
         </div>
 
