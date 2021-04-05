@@ -20,20 +20,16 @@ use Symfony\Component\Console\Input\Input;
 // });
 
 
-
-
-
 Route::get('/', "StudentController@index");
 Route::get('/edit/{id}', "StudentController@edit");
 Route::get('/show/{id}', "StudentController@show");
 Route::get('/create', "StudentController@create");
 Route::post('/store', "StudentController@store");
 Route::patch('/update/{id}', "StudentController@update");
-
 Route::get('/delete/{id}',"StudentController@destroy");
 Route::get('/search', "StudentController@search");
-
 Route::get('/student_profile/{id}', "StudentController@profile");
+Route::get('/edit_student_profile/{id}', "StudentController@edit_profile");
 
 
 

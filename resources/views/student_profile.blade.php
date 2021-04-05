@@ -72,7 +72,7 @@
           </div>          
         </div>
         <div class="functions">
-          <a href="#" class="btn btn-info">Chỉnh sửa</a>
+          <a href="{{ url('/edit_student_profile/'.$student->id)}}" class="btn btn-info">Chỉnh sửa</a>
           <a href="{{ url('/') }}" class="btn btn-warning">Quay lại</a>
         </div>
       </div>

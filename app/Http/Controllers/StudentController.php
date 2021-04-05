@@ -121,16 +121,26 @@ class StudentController extends Controller
     }   
     
     public function search(Request $request) {
-        $search = $request->get('search');
-        $student = DB::table('students')->where('class', 'like', '%'.$search.'%')
-        ->orwhere('grade', 'like', '%'.$search.'%')->get();
-        return view('student', ['students' => $student, 'layout'=>'search']);
+        $student = Student::query();
+
+        if ($search = $request->query('search_box')) {
+            $student->where('class', 'like', "%$search%")
+            ->orwhere('grade', 'like', "%$search%");
+        }
+        return view('student', ['students' => $student->get(), 'layout'=>'search']);
     }
 
     public function profile($id)
     {              
         $student = Student::findOrFail($id);
         return view('student_profile', compact('student'));
+    }
+
+    public function edit_profile($id) 
+    {
+        
+        $student = Student::findOrFail($id);
+        return view('edit_student_profile', ['students' => $student->get()]);
     }
  
 }

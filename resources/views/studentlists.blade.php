@@ -37,7 +37,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Mã sinh viên</th>
+      <th scope="col">Mã học sinh</th>
       <th scope="col">Khối</th>
       <th scope="col">Tên lớp</th>
       <th scope="col">Họ và Tên</th>
@@ -76,11 +76,11 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        Bạn xác nhận muốn xóa cột này?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <a href="/delete/{{ $student->id }}"><button type="button" class="btn btn-danger">Xác nhận xóa</button></a>
       </div>
     </div>
   </div>

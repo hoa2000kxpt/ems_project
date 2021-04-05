@@ -109,7 +109,7 @@
                   @endif
               </div>
               <input type="submit" class="btn btn-info" value="Thêm vào">
-              <input type="reset" class="btn btn-warning" value="Quay về">
+              <input type="reset" class="btn btn-warning" value="Cài lại">
 
             </form>  
           </section> 
@@ -177,8 +177,8 @@
                     <span class="text-danger">{{ $errors->first('head_teacher') }}</span>
                   @endif
               </div>
-              <input type="submit" class="btn btn-info" value="Thêm vào">
-              <input type="reset" class="btn btn-warning" value="Quay về">
+              <input type="submit" class="btn btn-info" value="Xác nhận">
+              <input type="reset" class="btn btn-warning" value="Cài lại">
                               
             </form>  
           </section> 
