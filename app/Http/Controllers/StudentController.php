@@ -37,6 +37,19 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'student_id' => 'required|unique:students',
+            'grade' => 'required',
+            'class' => 'required',
+            'fullname' => 'required',
+            'head_teacher' => 'required',
+        ], [
+            'student_id.required' => 'Vui lòng nhập mã học sinh',
+            'grade.required' => 'Vui lòng nhập khối',
+            'class.required' => 'Vui lòng nhập lớp',
+            'fullname.required' => 'Vui lòng nhập họ và tên',
+            'head_teacher.required' => 'Vui lòng nhập tên giáo viên chủ nhiệm'
+            ]);      
         $student = new Student();        
         $student->student_id = $request->input('student_id');
         $student->grade = $request->input('grade');
@@ -44,6 +57,7 @@ class StudentController extends Controller
         $student->fullname = $request->input('fullname');
         $student->head_teacher = $request->input('head_teacher');
         $student->save();
+          
         return redirect('/');
         
     }
@@ -103,8 +117,20 @@ class StudentController extends Controller
     public function destroy($id)
     {
         DB::delete("delete from students where id = ?", [$id]);
-        return redirect('/')->with('success', 'data deleted');
+        return redirect('/')->with('success', 'Dữ liệu được xóa thành công!');
+    }   
+    
+    public function search(Request $request) {
+        $search = $request->get('search');
+        $student = DB::table('students')->where('class', 'like', '%'.$search.'%')
+        ->orwhere('grade', 'like', '%'.$search.'%')->get();
+        return view('student', ['students' => $student, 'layout'=>'search']);
     }
 
-    
+    public function profile($id)
+    {              
+        $student = Student::findOrFail($id);
+        return view('student_profile', compact('student'));
+    }
+ 
 }

@@ -20,7 +20,15 @@
             margin-right: 0.5em;
           }
 
+          /* .form-control input {
+            width: 50% !important;
+          } */
+
+          /* .form-control .search {
+            display: flex !important;
+          } */
     </style>
+
     <title>Student Management System</title>
   </head>
   <body>
@@ -28,7 +36,7 @@
 
   <div class="row header-container justify-content-center">
         <div class="header">
-            <h1>Student Management System</h1>
+            <h1>Phần mềm quản lý học sinh</h1>
         </div>
   </div>
 
@@ -59,31 +67,46 @@
               </div>
           </div>
 
-          <form action="{{ action('StudentController@store')}}" method="PUT"> 
+          <form action="{{ action('StudentController@store')}}" method="POST"> 
               @csrf
               <div class="form-group">
-                  <label for="student_id">ID</label>
+                  <label for="student_id">Mã học sinh</label>
                   <input type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền mã hs"/>
+                  @if ($errors->has('student_id'))
+                    <span class="text-danger">{{ $errors->first('student_id') }}</span>
+                  @endif
               </div>   
 
               <div class="form-group">
                   <label for="grade">Khối</label>
                   <input type="text" class="form-control" name="grade" id="grade" placeholder="Hãy điền khối hs"/>
+                  @if ($errors->has('grade'))
+                    <span class="text-danger">{{ $errors->first('grade') }}</span>
+                  @endif
               </div>
 
               <div class="form-group">
                   <label for="class">Tên lớp</label>
                   <input type="text" class="form-control" name="class" id="class" placeholder="Hãy điền lớp hs"/>
+                  @if ($errors->has('class'))
+                    <span class="text-danger">{{ $errors->first('class') }}</span>
+                  @endif
               </div>
 
               <div class="form-group">
                   <label for="fullname">Họ và Tên</label>
                   <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Hãy điền họ và tên hs"/>
+                  @if ($errors->has('fullname'))
+                    <span class="text-danger">{{ $errors->first('fullname') }}</span>
+                  @endif
               </div>
 
               <div class="form-group">
                   <label for="head_teacher">Thầy/Cô giáo chủ nhiệm</label>
                   <input type="text" class="form-control" name="head_teacher" id="head_teacher" placeholder="Hãy điền tên giáo viên"/>
+                  @if ($errors->has('head_teacher'))
+                    <span class="text-danger">{{ $errors->first('head_teacher') }}</span>
+                  @endif
               </div>
               <input type="submit" class="btn btn-info" value="Thêm vào">
               <input type="reset" class="btn btn-warning" value="Quay về">
@@ -112,31 +135,47 @@
           </section>
 
           <section class="col-md-5">
-          <form action="{{ action('StudentController@update',['id'=>$student->id])}}" method="PUT"> 
+          <form action="{{ action('StudentController@update',['id'=>$student->id])}}" method="POST"> 
               @csrf
+              @method('PATCH')
               <div class="form-group">
-                  <label for="student_id">ID</label>
+                  <label for="student_id">Mã học sinh</label>
                   <input value="{{ $student->student_id}}" type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền mã hs"/>
+                  @if ($errors->has('student_id'))
+                    <span class="text-danger">{{ $errors->first('student_id') }}</span>
+                  @endif
               </div>   
 
               <div class="form-group">
                   <label for="grade">Khối</label>
                   <input value="{{ $student->grade}}"  type="text" class="form-control" name="grade" id="grade" placeholder="Hãy điền khối hs"/>
+                  @if ($errors->has('grade'))
+                    <span class="text-danger">{{ $errors->first('grade') }}</span>
+                  @endif
               </div>
 
               <div class="form-group">
                   <label for="class">Tên lớp</label>
                   <input value="{{ $student->class}}"  type="text" class="form-control" name="class" id="class" placeholder="Hãy điền lớp hs"/>
+                  @if ($errors->has('class'))
+                    <span class="text-danger">{{ $errors->first('class') }}</span>
+                  @endif
               </div>
 
               <div class="form-group">
                   <label for="fullname">Họ và Tên</label>
                   <input value="{{ $student->fullname}}"  type="text" class="form-control" name="fullname" id="fullname" placeholder="Hãy điền họ và tên hs"/>
+                  @if ($errors->has('fullname'))
+                    <span class="text-danger">{{ $errors->first('fullname') }}</span>
+                  @endif
               </div>
 
               <div class="form-group">
                   <label for="head_teacher">Thầy/Cô giáo chủ nhiệm</label>
                   <input value="{{ $student->head_teacher}}"  type="text" class="form-control" name="head_teacher" id="head_teacher" placeholder="Hãy điền tên giáo viên"/>
+                  @if ($errors->has('head_teacher'))
+                    <span class="text-danger">{{ $errors->first('head_teacher') }}</span>
+                  @endif
               </div>
               <input type="submit" class="btn btn-info" value="Thêm vào">
               <input type="reset" class="btn btn-warning" value="Quay về">
@@ -145,6 +184,18 @@
           </section> 
         </div>
       </div>
+
+    @elseif($layout == 'search')  
+    <div class="container-fluid mt-4">
+          <div class="row">
+            <section class="col-md-12"> 
+              @include('studentlists')
+            </section>
+
+            <section class="">
+            </section> 
+          </div>  
+        </div>
     @endif
 
     <!-- Optional JavaScript -->

@@ -17,10 +17,10 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('student_id')->unique();
-            $table->integer('grade')->nullable($value = true);
-            $table->string('class')->nullable($value = true);
-            $table->string('fullname')->nullable($value = true);
-            $table->string('head_teacher')->nullable($value = true);            
+            $table->integer('grade');
+            $table->string('class');
+            $table->string('fullname');
+            $table->string('head_teacher');            
         });
     }
 

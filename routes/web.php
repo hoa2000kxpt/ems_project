@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Console\Input\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,19 +21,20 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/student_profile', function() {
-    return view('student_profile');
-});
+
 
 Route::get('/', "StudentController@index");
 Route::get('/edit/{id}', "StudentController@edit");
 Route::get('/show/{id}', "StudentController@show");
 Route::get('/create', "StudentController@create");
 Route::post('/store', "StudentController@store");
-Route::get('/update/{id}', "StudentController@update");
+Route::patch('/update/{id}', "StudentController@update");
 
 Route::get('/delete/{id}',"StudentController@destroy");
+Route::get('/search', "StudentController@search");
+
+Route::get('/student_profile/{id}', "StudentController@profile");
 
 
-// ->name('student_profile');
+
 

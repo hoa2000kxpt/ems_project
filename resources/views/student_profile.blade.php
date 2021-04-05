@@ -62,16 +62,18 @@
         <div class="card shadow-sm">
           <div class="card-header bg-transparent text-center">
             <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
-            <h3>Đỗ Văn Hòa</h3>
+            
+            <h3>{{ $student->fullname }}</h3>
           </div>
           <div class="card-body">
-            <p class="mb-0"><strong class="pr-1">Mã học sinh:</strong>1801040089</p>
-            <p class="mb-0"><strong class="pr-1">Lớp:</strong>5A</p>            
+            <p class="mb-0"><strong class="pr-1">Mã học sinh:</strong>{{ $student->student_id }}</p>
+            <p class="mb-0"><strong class="pr-1">Lớp:</strong>{{ $student->class }}</p> 
+                            
           </div>          
         </div>
         <div class="functions">
           <a href="#" class="btn btn-info">Chỉnh sửa</a>
-          <a href="#" class="btn btn-warning">Quay lại</a>
+          <a href="{{ url('/') }}" class="btn btn-warning">Quay lại</a>
         </div>
       </div>
 
@@ -83,36 +85,38 @@
           </div>
           <div class="card-body pt-0">
             <table class="table table-bordered">
+            
               <tr>
                 <th width="30%">Họ và tên</th>
                 <td width="2%">:</td>
-                <td>Đỗ Văn Hòa</td>
+                <td>{{ $student->fullname }}</td>
               </tr>
               <tr>
                 <th width="30%">Ngày/Tháng/Năm sinh</th>
                 <td width="2%">:</td>
-                <td>26/09/2000</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Giới tính</th>
                 <td width="2%">:</td>
-                <td>Nam</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Dân tộc</th>
                 <td width="2%">:</td>
-                <td>Kinh</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Địa chỉ</th>
                 <td width="2%">:</td>
-                <td>Phùng Khoang, Hà Đông</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Số điện thoại</th>
                 <td width="2%">:</td>
-                <td>0968581428</td>
+                <td></td>
               </tr>
+              
             </table>
           </div>
 
@@ -126,48 +130,43 @@
               <tr>
                 <th width="30%">Họ và tên</th>
                 <td width="2%">:</td>
-                <td>Nguyễn Thị Mai Huệ</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Ngày/Tháng/Năm sinh</th>
                 <td width="2%">:</td>
-                <td>22/09/1967</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Giới tính</th>
                 <td width="2%">:</td>
-                <td>Nữ</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Nghề nghiệp</th>
                 <td width="2%">:</td>
-                <td>Giáo viên </td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Dân tộc</th>
                 <td width="2%">:</td>
-                <td>Kinh</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">Số điện thoại</th>
                 <td width="2%">:</td>
-                <td>0978567689</td>
+                <td></td>
               </tr>
               <tr>
                 <th width="30%">E-mail</th>
                 <td width="2%">:</td>
-                <td>nguyenthimaihue1967@gmail.com</td>
+                <td></td>
               </tr>
             </table>
           </div>
 
         </div>
       </div>
-
-
-      
-
-
     </div>
   </div>
 </div>

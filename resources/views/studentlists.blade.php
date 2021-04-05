@@ -1,8 +1,18 @@
 @if(\Session::has('success'))
-<div class="alert alert-danger">
+<div class="alert alert-success">
     <h4> {{ \Session::get('success') }} </h4>
 </div>
 <hr>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 <div class="card mb-3">
@@ -10,10 +20,18 @@
   <div class="card-body">
       <h5 class="card-title">Danh sách học sinh </h5>
       <p class="card-text">Bạn có thể tìm tất cả thông tin học sinh ở đây:</p>
-    
   </div>
 </div>
 
+<form action="/search" method="GET" role="search">
+  <div class="form-group">  
+        <label for="search_box"><h6>Hộp Tìm kiếm</h6></label>
+          <div class="search" style="display:flex;">
+              <input type="text" class="form-control" name="search_box" id="search_box" placeholder="Tìm kiếm học sinh theo khối, lớp,..." style="width:30%;margin-right: 0.5em;"/>
+              <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+          </div>
+  </div>
+</form>
 
 <table class="table thead-light">
   <thead>
@@ -37,11 +55,33 @@
         <td>{{ $student->fullname }}</td>
         <td>{{ $student->head_teacher }}</td>
         <td id="functions">           
-          <a href="{{url('student_profile')}}" class="btn btn-info">Xem hồ sơ</a> 
+          <a href="{{ url('/student_profile/'.$student->id) }}" class="btn btn-info">Xem hồ sơ</a> 
           <a href="{{ url('/edit/'.$student->id) }}" class="btn btn-warning">Sửa</a>
-          <a href="/delete/{{ $student->id }}" class="btn btn-danger">Xóa</a>
+          <a data-toggle="modal" class="btn btn-danger" data-target="#delete_data" style="color:white;">Xóa</a>
         </td>
     </tr>    
+
     @endforeach  
     </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="delete_data" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
