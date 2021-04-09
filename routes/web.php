@@ -31,6 +31,7 @@ Route::get('/search', "StudentController@search");
 Route::get('/student_profile/{id}', "StudentController@profile");
 Route::get('/edit_student_profile/{id}', "StudentController@edit_profile");
 
+
 /*Excel import export*/
 Route::get('export', 'ImportExportController@export')->name('export');
 Route::get('importExportView', 'ImportExportController@importExportView');

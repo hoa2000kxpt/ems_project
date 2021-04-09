@@ -12,52 +12,66 @@
             padding: 2em;
             margin-bottom: 1em; 
         }
+
+        .form-group span {
+            color: red;
+        }
     </style>
 </head>
 <body>
 
+
+
 <section id="stu_profile">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <form>
+        <div class="row">        
+        <form action="{{ action('StudentController@store')}}" method="POST" style="width: 100%;display: flex;"> 
+            @csrf
+            <div class="col-md-6"> 
                 <div class="card">
                     <div class="card-body">
                         <h3>Thông tin học sinh</h3>
                     </div>
                     
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="student_img">Ảnh giao diện</label>
                         <input type="file" class="form-control-file" name="student_img" id="student_img">
-                    </div>                        
+                    </div>   -->
 
                     <div class="form-group">
-                        <label for="student_fullname">Họ và tên</label>
-                        <input type="text" class="form-control" name="student_fullname" id="student_fullname" placeholder="Hãy điền họ và tên học sinh" value="{{ $student->fullname }}"/>
+                        <label for="student_fullname">Họ và tên<span>(*)</span></label>
+                        <input type="text" class="form-control" name="student_fullname" id="student_fullname" placeholder="Hãy điền họ và tên học sinh"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_id">Thẻ học sinh</label>
-                        <input type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền thẻ học sinh" value="{{ $student->student_id }}"/>
+                        <label for="student_id">Thẻ học sinh<span>(*)</span></label>
+                        <input type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền thẻ học sinh"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_dob">Ngày sinh (Tháng/Ngày/Năm)</label>
+                        <label for="student_dob">Ngày sinh (Tháng/Ngày/Năm)<span>(*)</span></label>
                         <input type="date" class="form-control" name="student_dob" id="student_dob"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_grade">Khối</label>
-                        <input type="text" class="form-control" name="student_grade" id="student_grade" placeholder="Hãy điền khối của học sinh" value="{{ $student->grade}}"/>
+                        <label for="student_grade">Giới tính<span>(*)</span></label>
+                            <select class="form-control" name="student_grade" id="student_grade">
+                                <option selected="true" disabled="disabled">-- Hãy chọn khối --</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option> 
+                                <option>4</option>    
+                                <option>5</option>                                   
+                            </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_class">Lớp</label>
-                        <input type="text" class="form-control" name="student_class" id="student_class" placeholder="Hãy điền lớp của học sinh" value="{{ $student->class}}"/>
+                        <label for="student_class">Lớp<span>(*)</span></label>
+                        <input type="text" class="form-control" name="student_class" id="student_class" placeholder="Hãy điền lớp của học sinh"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_gender">Giới tính</label>
+                        <label for="student_gender">Giới tính<span>(*)</span></label>
                             <select class="form-control" name="student_gender" id="student_gender">
                                 <option selected="true" disabled="disabled">-- Hãy chọn giới tính --</option>
                                 <option>Nam</option>
@@ -67,27 +81,29 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="student_address">Lớp</label>
+                        <label for="student_address">Địa chỉ<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_address" id="student_address" placeholder="Hãy điền địa chỉ của học sinh"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_nation">Dân tộc</label>
+                        <label for="student_nation">Dân tộc<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_nation" id="student_nation" placeholder="Hãy điền dân tộc của học sinh"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="student_phone">Số điện thoại</label>
+                        <label for="student_phone">Số điện thoại<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_phone" id="student_phone" placeholder="Hãy điền số điện thoại của học sinh"/>
-                    </div>     
-                </form>
-                
-            </div>
-            
-        </div>                   
+                    </div>  
 
-            <div class="col-md-6">
-            <form>
+                    <div class="form-group">
+                        <label for="head_teacher">Giáo viên chủ nhiệm<span>(*)</span></label>
+                        <input type="text" class="form-control" name="head_teacher" id="head_teacher" placeholder="Hãy điền thông tin giáo viên chủ nhiệm"/>
+                    </div>    
+                                
+                </div>            
+            </div>                
+
+            <div class="col-md-6">            
                 <div class="card">
                     <div class="card-body">
                         <h3>Thông tin phụ huynh</h3>
@@ -132,14 +148,16 @@
                         <label for="parent_email">Email</label>
                         <input type="text" class="form-control" name="parent_email" id="parent_email" placeholder="Hãy điền số điện thoại của phụ huynh"/>
                     </div>  
-                </form>
+             
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
-            <a href="{{ url('/student_profile/'.$student->id)}}" class="btn btn-warning">Quay về</a>
             
+        </form> 
         </div>
+    </div>    
 
 </section>
+</form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

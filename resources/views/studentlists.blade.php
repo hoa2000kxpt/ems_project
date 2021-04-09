@@ -50,22 +50,16 @@
     <tr>
         <th scope="row">{{ $student->id }}</th>
         <td>{{ $student->student_id }}</td>
-        <td>{{ $student->grade }}</td>
-        <td>{{ $student->class }}</td>
-        <td>{{ $student->fullname }}</td>
+        <td>{{ $student->student_grade }}</td>
+        <td>{{ $student->student_class }}</td>
+        <td>{{ $student->student_fullname }}</td>
         <td>{{ $student->head_teacher }}</td>
         <td id="functions">           
-          <a href="{{ url('/student_profile/'.$student->id) }}" class="btn btn-info">Xem hồ sơ</a> 
-          <a href="{{ url('/edit/'.$student->id) }}" class="btn btn-warning">Sửa</a>
+          <a href="{{ url('/student_profile/'.$student->id) }}" class="btn btn-info">Xem hồ sơ</a>           
           <a data-toggle="modal" class="btn btn-danger" data-target="#delete_data" style="color:white;">Xóa</a>
         </td>
-    </tr>    
-
-    @endforeach  
-    </tbody>
-</table>
-
-<!-- Modal -->
+    </tr> 
+    <!-- Modal -->
 <div class="modal fade" id="delete_data" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -79,9 +73,16 @@
         Bạn xác nhận muốn xóa cột này?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>        
         <a href="/delete/{{ $student->id }}"><button type="button" class="btn btn-danger">Xác nhận xóa</button></a>
+        
       </div>
     </div>
   </div>
 </div>
+    @endforeach
+    </tbody>
+</table>
+
+
+

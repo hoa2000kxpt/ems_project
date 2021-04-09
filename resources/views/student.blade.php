@@ -54,20 +54,28 @@
     @elseif($layout == 'create')
       <div class="container-fluid mt-4">
         <div class="row">
-          <section class="col-md-7"> 
-            @include('studentlists')
-          </section>
+        
+          <section class="col-md-12"> 
+            
+           
+            @include('edit_student_profile')
+         
+             
+          </section>   
 
-          <section class="col-md-5">
-          <div class="card mb-3">
-              <img class="card-img-top" src="https://nessar.net/wp-content/uploads/2020/02/lisegagne.jpg" alt="Card image cap">
-              <div class="card-body">
-                  <h5 class="card-title">Tạo học sinh </h5>
-                  <p class="card-text">Bạn có thể điền thông tin học sinh ở đây:</p>      
-              </div>
-          </div>
+      <!-- @elseif($layout == 'store')
+      <div class="container-fluid mt-4">
+        <div class="row">
+        
+          <section class="col-md-12"> 
+            <form action="{{ action('StudentController@store')}}" method="POST"> 
+            @csrf
+            @include('edit_student_profile')
+            
+            </form>  
+          </section>      
 
-          <form action="{{ action('StudentController@store')}}" method="POST"> 
+          <!-- <form action="{{ action('StudentController@store')}}" method="POST"> 
               @csrf
               <div class="form-group">
                   <label for="student_id">Mã học sinh</label>
@@ -111,10 +119,10 @@
               <input type="submit" class="btn btn-info" value="Thêm vào">
               <input type="reset" class="btn btn-warning" value="Cài lại">
 
-            </form>  
+            </form>   -->
           </section> 
         </div>  
-      </div>
+      </div> -->
     @elseif($layout == 'show')
       <div class="container-fluid mt-4">
           <div class="row">
@@ -130,11 +138,15 @@
     @elseif($layout == 'edit')
       <div class="container-fluid">
         <div class="row">
-          <section class="col-md-7"> 
-            @include('studentlists')
+          <section class="col-md-12"> 
+          <form action="{{ action('StudentController@update',['id'=>$student->id])}}" method="POST"> 
+              @csrf
+              @method('PATCH')
+              @include('edit')
+          </form>
           </section>
 
-          <section class="col-md-5">
+          <!-- <section class="col-md-5">
           <form action="{{ action('StudentController@update',['id'=>$student->id])}}" method="POST"> 
               @csrf
               @method('PATCH')
@@ -181,7 +193,7 @@
               <input type="reset" class="btn btn-warning" value="Cài lại">
                               
             </form>  
-          </section> 
+          </section>  -->
         </div>
       </div>
 

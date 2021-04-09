@@ -67,12 +67,12 @@
           </div>
           <div class="card-body">
             <p class="mb-0"><strong class="pr-1">Mã học sinh:</strong>{{ $student->student_id }}</p>
-            <p class="mb-0"><strong class="pr-1">Lớp:</strong>{{ $student->class }}</p> 
+            <p class="mb-0"><strong class="pr-1">Lớp:</strong>{{ $student->student_class }}</p> 
                             
           </div>          
         </div>
         <div class="functions">
-          <a href="{{ url('/edit_student_profile/'.$student->id)}}" class="btn btn-info">Chỉnh sửa</a>
+          <a href="{{ url('/edit/'.$student->id)}}" class="btn btn-info">Chỉnh sửa</a>
           <a href="{{ url('/') }}" class="btn btn-warning">Quay lại</a>
         </div>
       </div>
@@ -89,33 +89,39 @@
               <tr>
                 <th width="30%">Họ và tên</th>
                 <td width="2%">:</td>
-                <td>{{ $student->fullname }}</td>
+                <td>{{ $student->student_fullname }}</td>
               </tr>
               <tr>
-                <th width="30%">Ngày/Tháng/Năm sinh</th>
+                <th width="30%">Năm sinh/Tháng/Ngày</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->student_dob }}</td>
               </tr>
               <tr>
                 <th width="30%">Giới tính</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->student_gender }}</td>
               </tr>
               <tr>
                 <th width="30%">Dân tộc</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->student_nation }}</td>
               </tr>
               <tr>
                 <th width="30%">Địa chỉ</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->student_address }}</td>
               </tr>
               <tr>
                 <th width="30%">Số điện thoại</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->student_phone }}</td>
               </tr>
+              <tr>
+                <th width="30%">Số điện thoại</th>
+                <td width="2%">:</td>
+                <td>{{ $student->student_phone }}</td>
+              </tr>
+
               
             </table>
           </div>
@@ -130,37 +136,37 @@
               <tr>
                 <th width="30%">Họ và tên</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_name }}</td>
               </tr>
               <tr>
-                <th width="30%">Ngày/Tháng/Năm sinh</th>
+                <th width="30%">Tháng/Năm sinh/Ngày</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_dob }}</td>
               </tr>
               <tr>
                 <th width="30%">Giới tính</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_gender }}</td>
               </tr>
               <tr>
                 <th width="30%">Nghề nghiệp</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_job }}</td>
               </tr>
               <tr>
                 <th width="30%">Dân tộc</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_nation }}</td>
               </tr>
               <tr>
                 <th width="30%">Số điện thoại</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_phone }}</td>
               </tr>
               <tr>
                 <th width="30%">E-mail</th>
                 <td width="2%">:</td>
-                <td></td>
+                <td>{{ $student->parent_email }}</td>
               </tr>
             </table>
           </div>
