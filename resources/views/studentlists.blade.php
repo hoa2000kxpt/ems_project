@@ -29,6 +29,7 @@
           <div class="search" style="display:flex;">
               <input type="text" class="form-control" name="search_box" id="search_box" placeholder="Tìm kiếm học sinh theo khối, lớp,..." style="width:30%;margin-right: 0.5em;"/>
               <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+              
           </div>
   </div>
 </form>

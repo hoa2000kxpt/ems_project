@@ -10,7 +10,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/create') }}">Tạo lớp</a>
+            <a class="nav-link" href="{{ url('/create') }}">Tạo học sinh</a>
         </li>
       
     </ul>

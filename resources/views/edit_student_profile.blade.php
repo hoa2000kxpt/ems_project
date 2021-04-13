@@ -41,20 +41,29 @@
                     <div class="form-group">
                         <label for="student_fullname">Họ và tên<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_fullname" id="student_fullname" placeholder="Hãy điền họ và tên học sinh"/>
+                        @if ($errors->has('student_fullname'))
+                        <span class="text-danger">{{ $errors->first('student_fullname') }}</span>
+                        @endif
                     </div>
 
                     <div class="form-group">
                         <label for="student_id">Thẻ học sinh<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_id" id="student_id" placeholder="Hãy điền thẻ học sinh"/>
+                        @if ($errors->has('student_id'))
+                        <span class="text-danger">{{ $errors->first('student_id') }}</span>
+                        @endif
                     </div>
 
                     <div class="form-group">
                         <label for="student_dob">Ngày sinh (Tháng/Ngày/Năm)<span>(*)</span></label>
                         <input type="date" class="form-control" name="student_dob" id="student_dob"/>
+                        @if ($errors->has('student_dob'))
+                        <span class="text-danger">{{ $errors->first('student_dob') }}</span>
+                        @endif
                     </div>
 
                     <div class="form-group">
-                        <label for="student_grade">Giới tính<span>(*)</span></label>
+                        <label for="student_grade">Khối<span>(*)</span></label>
                             <select class="form-control" name="student_grade" id="student_grade">
                                 <option selected="true" disabled="disabled">-- Hãy chọn khối --</option>
                                 <option>1</option>
@@ -63,11 +72,17 @@
                                 <option>4</option>    
                                 <option>5</option>                                   
                             </select>
+                            @if ($errors->has('student_grade'))
+                            <span class="text-danger">{{ $errors->first('student_grade') }}</span>
+                            @endif
                     </div>
 
                     <div class="form-group">
                         <label for="student_class">Lớp<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_class" id="student_class" placeholder="Hãy điền lớp của học sinh"/>
+                        @if ($errors->has('student_class'))
+                        <span class="text-danger">{{ $errors->first('student_class') }}</span>
+                        @endif
                     </div>
 
                     <div class="form-group">
@@ -78,26 +93,41 @@
                                 <option>Nữ</option>
                                 <option>Không xác định</option>                                
                             </select>
+                            @if ($errors->has('student_gender'))
+                            <span class="text-danger">{{ $errors->first('student_gender') }}</span>
+                            @endif
                     </div>
 
                     <div class="form-group">
                         <label for="student_address">Địa chỉ<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_address" id="student_address" placeholder="Hãy điền địa chỉ của học sinh"/>
+                        @if ($errors->has('student_address'))
+                        <span class="text-danger">{{ $errors->first('student_address') }}</span>
+                        @endif
                     </div>
 
                     <div class="form-group">
                         <label for="student_nation">Dân tộc<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_nation" id="student_nation" placeholder="Hãy điền dân tộc của học sinh"/>
+                        @if ($errors->has('student_nation'))
+                        <span class="text-danger">{{ $errors->first('student_nation') }}</span>
+                        @endif
                     </div>
 
                     <div class="form-group">
                         <label for="student_phone">Số điện thoại<span>(*)</span></label>
                         <input type="text" class="form-control" name="student_phone" id="student_phone" placeholder="Hãy điền số điện thoại của học sinh"/>
+                        @if ($errors->has('student_phone'))
+                        <span class="text-danger">{{ $errors->first('student_phone') }}</span>
+                        @endif
                     </div>  
 
                     <div class="form-group">
                         <label for="head_teacher">Giáo viên chủ nhiệm<span>(*)</span></label>
                         <input type="text" class="form-control" name="head_teacher" id="head_teacher" placeholder="Hãy điền thông tin giáo viên chủ nhiệm"/>
+                        @if ($errors->has('head_teacher'))
+                        <span class="text-danger">{{ $errors->first('head_teacher') }}</span>
+                        @endif
                     </div>    
                                 
                 </div>            
@@ -112,6 +142,7 @@
                     <div class="form-group">
                         <label for="parent_name">Họ và tên</label>
                         <input type="text" class="form-control" name="parent_name" id="parent_name" placeholder="Hãy điền họ và tên phụ huynh"/>
+                        
                     </div>
 
                     <div class="form-group">

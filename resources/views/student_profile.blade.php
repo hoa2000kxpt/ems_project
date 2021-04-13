@@ -117,9 +117,9 @@
                 <td>{{ $student->student_phone }}</td>
               </tr>
               <tr>
-                <th width="30%">Số điện thoại</th>
+                <th width="30%">Giáo viên chủ nhiệm </th>
                 <td width="2%">:</td>
-                <td>{{ $student->student_phone }}</td>
+                <td>{{ $student->head_teacher }}</td>
               </tr>
 
               

@@ -56,11 +56,9 @@
         <div class="row">
         
           <section class="col-md-12"> 
-            
-           
+
             @include('edit_student_profile')
-         
-             
+
           </section>   
 
       <!-- @elseif($layout == 'store')
@@ -119,10 +117,10 @@
               <input type="submit" class="btn btn-info" value="Thêm vào">
               <input type="reset" class="btn btn-warning" value="Cài lại">
 
-            </form>   -->
-          </section> 
+            </form>   
+          </section> -->
         </div>  
-      </div> -->
+      </div> 
     @elseif($layout == 'show')
       <div class="container-fluid mt-4">
           <div class="row">

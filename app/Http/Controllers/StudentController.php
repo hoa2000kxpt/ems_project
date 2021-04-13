@@ -39,19 +39,32 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'student_id' => 'required|unique:students',
-        //     'student_grade' => 'required',
-        //     'student_class' => 'required',
-        //     'student_fullname' => 'required',
-        //     'head_teacher' => 'required',
-        // ], [
-        //     'student_id.required' => 'Vui lòng nhập mã học sinh',
-        //     'student_grade.required' => 'Vui lòng nhập khối',
-        //     'student_class.required' => 'Vui lòng nhập lớp',
-        //     'student_fullname.required' => 'Vui lòng nhập họ và tên',
-        //     'head_teacher.required' => 'Vui lòng nhập tên giáo viên chủ nhiệm'
-        //     ]);      
+        $request->validate([
+            'student_id' => 'required|unique:students|numeric',
+            'student_grade' => 'required',
+            'student_class' => 'required',
+            'student_dob' => 'required',
+            'student_fullname' => 'required',
+            'student_gender' => 'required',
+            'student_address' => 'required',
+            'student_nation' => 'required',
+            'student_phone' => 'required|numeric',
+            'head_teacher' => 'required',
+        ], [
+            'student_id.unique' => 'Thẻ học sinh đã bị trùng',
+            'student_id.numeric' => 'Thẻ học sinh phải là một con số',
+            'student_id.required' => 'Vui lòng nhập mã học sinh',
+            'student_grade.required' => 'Vui lòng nhập khối',
+            'student_class.required' => 'Vui lòng nhập lớp',
+            'student_dob.required' => 'Vui lòng nhập ngày/tháng/năm sinh',
+            'student_gender.required' => 'Vui lòng nhập giới tính',
+            'student_fullname.required' => 'Vui lòng nhập họ và tên',
+            'student_address.required' => 'Vui lòng nhập địa chỉ',
+            'student_nation.required' => 'Vui lòng nhập dân tộc',
+            'student_phone.numeric' => 'Số điện thoại phải là một con số',
+            'student_phone.required' => 'Vui lòng nhập dân tộc',
+            'head_teacher.required' => 'Vui lòng nhập tên giáo viên chủ nhiệm'
+            ]);      
         $student = new Student();        
         $student->student_id = $request->input('student_id');
         $student->student_fullname= $request->input('student_fullname');
@@ -114,6 +127,33 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'student_id' => 'required|unique:students|numeric',
+            'student_grade' => 'required',
+            'student_class' => 'required',
+            'student_dob' => 'required',
+            'student_fullname' => 'required',
+            'student_gender' => 'required',
+            'student_address' => 'required',
+            'student_nation' => 'required',
+            'student_phone' => 'required|numeric',
+            'head_teacher' => 'required',
+        ], [
+            'student_id.unique' => 'Thẻ học sinh đã bị trùng',
+            'student_id.numeric' => 'Thẻ học sinh phải là một con số',
+            'student_id.required' => 'Vui lòng nhập mã học sinh',
+            'student_grade.required' => 'Vui lòng nhập khối',
+            'student_class.required' => 'Vui lòng nhập lớp',
+            'student_dob.required' => 'Vui lòng nhập ngày/tháng/năm sinh',
+            'student_gender.required' => 'Vui lòng nhập giới tính',
+            'student_fullname.required' => 'Vui lòng nhập họ và tên',
+            'student_address.required' => 'Vui lòng nhập địa chỉ',
+            'student_nation.required' => 'Vui lòng nhập dân tộc',
+            'student_phone.numeric' => 'Số điện thoại phải là một con số',
+            'student_phone.required' => 'Vui lòng nhập dân tộc',
+            'head_teacher.required' => 'Vui lòng nhập tên giáo viên chủ nhiệm'
+            ]);      
+            
         $student = Student::find($id);
         $student->student_id = $request->input('student_id');
         $student->student_fullname= $request->input('student_fullname');
@@ -170,6 +210,11 @@ class StudentController extends Controller
         
         $student = Student::findOrFail($id);
         return view('edit_student_profile', compact('student'));
+    }
+
+    public function count_rows() {
+        $student_count = DB::table('students')->count();
+        return view("/", compact('student_count'));
     }
 
 }
