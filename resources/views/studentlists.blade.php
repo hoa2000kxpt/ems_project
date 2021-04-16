@@ -20,6 +20,8 @@
   <div class="card-body">
       <h5 class="card-title">Danh sách học sinh </h5>
       <p class="card-text">Bạn có thể tìm tất cả thông tin học sinh ở đây:</p>
+      <a href="{{ url('/create') }}" class="btn btn-warning">Tạo học sinh</a>
+      <a href="{{ url('/export-excel') }}" class="btn btn-success">Xuất file</a>
   </div>
 </div>
 

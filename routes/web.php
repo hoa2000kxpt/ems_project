@@ -33,9 +33,10 @@ Route::get('/edit_student_profile/{id}', "StudentController@edit_profile");
 
 
 /*Excel import export*/
-Route::get('export', 'ImportExportController@export')->name('export');
-Route::get('importExportView', 'ImportExportController@importExportView');
-Route::post('import', 'ImportExportController@import')->name('import');
+Route::get('/export-excel', 'ImportExportController@exportIntoExcel');
+Route::get('/export-csv', 'ImportExportController@exportIntoCSV');;
+
+Route::get('/download-pdf', 'ImportExportController@downloadPDF');
 
 
 

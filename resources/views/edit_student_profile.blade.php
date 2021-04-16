@@ -177,11 +177,11 @@
 
                     <div class="form-group">
                         <label for="parent_email">Email</label>
-                        <input type="text" class="form-control" name="parent_email" id="parent_email" placeholder="Hãy điền số điện thoại của phụ huynh"/>
+                        <input type="text" class="form-control" name="parent_email" id="parent_email" placeholder="Hãy điền email của phụ huynh"/>
                     </div>  
              
             </div>
-            <button type="submit" class="btn btn-primary">Lưu</button>
+            <button type="submit" class="btn btn-primary">Lưu</button>k
             
         </form> 
         </div>
