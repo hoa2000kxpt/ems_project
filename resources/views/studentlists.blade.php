@@ -36,7 +36,7 @@
   </div>
 </form>
 
-<table class="table thead-light">
+<table class="table thead-light" id="studentList">
   <thead>
     <tr>
       <th scope="col">ID</th>
